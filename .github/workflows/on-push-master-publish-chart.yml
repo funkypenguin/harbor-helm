@@ -23,7 +23,7 @@ jobs:
       - name: Set up Helm
         uses: azure/setup-helm@v1
         with:
-          version: v3.6.4
+          version: v3.6.1
 
       # python is a requirement for the chart-testing action below (supports yamllint among other tests)
       - uses: actions/setup-python@v2
@@ -70,7 +70,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v1
         with:
-          version: v3.6.2
+          version: v3.6.1
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.1.0
