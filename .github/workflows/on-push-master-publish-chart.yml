@@ -6,7 +6,7 @@ on:
       - master
       - main # assume that the branch name may change in future
     paths:
-      - 'charts/**' 
+      - 'templates/**' 
       - '.github/**'     
 env:
   KUBE_SCORE_VERSION: 1.10.0
