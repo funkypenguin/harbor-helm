@@ -546,9 +546,9 @@ postgres://{{ template "harbor.database.username" . }}:{{ template "harbor.datab
 
 {{- define "harbor.metricsPortName" -}}
   {{- if .Values.internalTLS.enabled }}
-    {{- printf "https-metrics" -}}
+    {{- printf "tcp-https-metrics" -}}
   {{- else -}}
-    {{- printf "http-metrics" -}}
+    {{- printf "tcp-http-metrics" -}}
   {{- end -}}
 {{- end -}}
 
