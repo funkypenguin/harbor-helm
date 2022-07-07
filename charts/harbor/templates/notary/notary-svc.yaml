@@ -6,12 +6,11 @@ metadata:
   labels:
 {{ include "harbor.labels" . | indent 4 }}
 spec:
-{{- if  (eq .Values.expose.ingress.controller "gce") }}
+{{- if or (eq .Values.expose.ingress.controller "gce") (eq .Values.expose.ingress.controller "alb") }}
   type: NodePort
 {{- end }}
   ports:
   - port: 4443
-    name: tcp
   selector:
 {{ include "harbor.matchLabels" . | indent 4 }}
     component: notary-server
@@ -26,7 +25,6 @@ metadata:
 spec:
   ports:
   - port: 7899
-    name: tcp
   selector:
 {{ include "harbor.matchLabels" . | indent 4 }}
     component: notary-signer
