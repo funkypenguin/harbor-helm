@@ -510,7 +510,7 @@ core:
   gdpr:
     deleteUser: false
   ## securityContext to apply to the container
-  containerSecurityContext: {} 
+  containerSecurityContext: {}
 
 jobservice:
   image:
