@@ -571,6 +571,9 @@ registry:
     #  requests:
     #    memory: 256Mi
     #    cpu: 100m
+    
+    ## securityContext to apply to the container
+    containerSecurityContext: {}    
   replicas: 1
   revisionHistoryLimit: 10
   nodeSelector: {}
