@@ -135,7 +135,7 @@ spec:
         persistentVolumeClaim:
           claimName: {{ $database.existingClaim }}
       {{- end -}}
-      {{- if .Values.databsae.extraVolumes }}
+      {{- if .Values.database.extraVolumes }}
       {{ toYaml .Values.database.extraVolumes | indent 6 }}
       {{- end }}      
     {{- with .Values.database.internal.nodeSelector }}
