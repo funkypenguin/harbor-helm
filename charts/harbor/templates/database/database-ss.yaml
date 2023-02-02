@@ -116,7 +116,7 @@ spec:
         - name: shm-volume
           mountPath: /dev/shm
       {{- if .Values.database.extraVolumeMounts }}
-      {{ toYaml .Values.database.extraVolumeMounts | indent 8 }}
+      {{ toYaml .Values.database.extraVolumeMounts | indent 10 }}
       {{- end }}          
         {{- with .Values.database.internal.containerSecurityContext }}
         securityContext:
@@ -136,7 +136,7 @@ spec:
           claimName: {{ $database.existingClaim }}
       {{- end -}}
       {{- if .Values.database.extraVolumes }}
-      {{ toYaml .Values.database.extraVolumes | indent 6 }}
+      {{ toYaml .Values.database.extraVolumes | indent 8 }}
       {{- end }}      
     {{- with .Values.database.internal.nodeSelector }}
       nodeSelector:
