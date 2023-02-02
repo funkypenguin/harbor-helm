@@ -115,6 +115,9 @@ spec:
           subPath: {{ $database.subPath }}
         - name: shm-volume
           mountPath: /dev/shm
+      {{- if .Values.database.extraVolumeMounts }}
+      {{ toYaml .Values.database.extraVolumeMounts | indent 8 }}
+      {{- end }}          
         {{- with .Values.database.internal.containerSecurityContext }}
         securityContext:
           {{- toYaml . | nindent 10 }}
@@ -132,6 +135,9 @@ spec:
         persistentVolumeClaim:
           claimName: {{ $database.existingClaim }}
       {{- end -}}
+      {{- if .Values.databsae.extraVolumes }}
+      {{ toYaml .Values.database.extraVolumes | indent 6 }}
+      {{- end }}      
     {{- with .Values.database.internal.nodeSelector }}
       nodeSelector:
 {{ toYaml . | indent 8 }}

@@ -846,6 +846,15 @@ database:
   ## Additional deployment annotations
   podAnnotations: {}
 
+  extraVolumeMounts:
+  - name: backup
+    mountPath: /scratch
+
+  extraVolumes:
+  - name: backup
+    emptyDir:
+      sizeLimit: 10Gi 
+
 redis:
   # if external Redis is used, set "type" to "external"
   # and fill the connection informations in "external" section
